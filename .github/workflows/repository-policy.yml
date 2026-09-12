@@ -1,0 +1,46 @@
+name: Repository policy
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repository-policy-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  boundaries:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Verify required repository boundaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f README.md
+          test -f SECURITY.md
+          test -f specification/README.md
+          test -f contracts/README.md
+          test -f packages/sdk/README.md
+          test -f deployments/README.md
+      - name: Reject adopter-specific imports in core source
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RniE \
+            --include='package.json' \
+            --include='*.js' \
+            --include='*.jsx' \
+            --include='*.ts' \
+            --include='*.tsx' \
+            --include='*.sol' \
+            '(@agroasys|agroasys/)' contracts packages specification; then
+            echo 'Adopter-specific imports are forbidden in Cotsel core.'
+            exit 1
+          fi
