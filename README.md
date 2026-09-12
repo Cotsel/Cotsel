@@ -1,10 +1,6 @@
 # Cotsel
 
-Cotsel is the public protocol and integration repository for Cotsel's
-evidence-based settlement infrastructure. It contains the smart contracts,
-protocol specification, customer SDK, public schemas, verified deployment
-records, and examples that companies use to integrate with Cotsel.
-
+Cotsel is programmable settlement infrastructure for institutional digital asset transactions. It enables organizations to escrow assets, release funds against verified commercial evidence, enforce policy and multi-party approvals, and reconcile settlement end to end.
 ## Repository structure
 
 ```text
