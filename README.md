@@ -8,7 +8,7 @@ records, and examples that companies use to integrate with Cotsel.
 ## Repository structure
 
 ```text
-cotsel/
+Cotsel/
 ├── contracts/
 │   ├── protocol/             Settlement contracts and state machine
 │   ├── factory/              Tenant contract deployment factory
@@ -31,4 +31,4 @@ cotsel/
 
 The private API, dashboard, backend services, workers, tenant data, provider
 connections, and infrastructure are maintained separately in
-`Cotsel/cotsel-platform`.
+`Cotsel/Cotsel-platform`.
