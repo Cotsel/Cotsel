@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "capturedAt": "2026-09-27T00:00:00+03:00",
+  "repository": "Cotsel/Cotsel",
+  "visibility": "public",
+  "defaultBranch": "main",
+  "defaultBranchSha": "fcdb095c8f712b7599f31297dc53d3c3783e9849",
+  "governance": {
+    "defaultBranchProtected": true,
+    "requiredChecks": ["boundaries"],
+    "requiredApprovals": 1,
+    "requireCodeOwnerReview": true,
+    "dismissStaleReviews": true,
+    "requireLastPushApproval": true
+  },
+  "billing": {
+    "period": "2026-09 through 2026-09-27",
+    "linuxGrossMinutes": 4,
+    "linuxNetMinutes": 0,
+    "linuxNetAmountUsd": 0
+  },
+  "workflows": [
+    {
+      "file": "repository-policy.yml",
+      "name": "Repository policy",
+      "triggers": ["pull_request", "push"],
+      "maximumRunnerJobs": 1,
+      "prConcurrencyCancellation": true,
+      "pathFiltered": false
+    }
+  ],
+  "behaviorSuppressionEnabledByThisBaseline": false
+}
